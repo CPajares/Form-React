@@ -1,6 +1,9 @@
+import { useContext } from "react";
+import FormContext from "../../context/Form";
 import ButtonB from "../Button/Button";
 
 const SecondPageForm = () => {
+  const { setPageState } = useContext(FormContext);
   return (
     <>
       <div className="form-group">
@@ -38,13 +41,13 @@ const SecondPageForm = () => {
       <ButtonB
         text={"<<"}
         className={"btn btn-info"}
-        onClick={() => console.log("back")}
+        onClick={() => setPageState(-1)}
       />
       <ButtonB
         type="submit"
         text={">>"}
         className={"btn btn-info"}
-        onClick={() => console.log("next")}
+        onClick={() => setPageState(+1)}
       />
     </>
   );

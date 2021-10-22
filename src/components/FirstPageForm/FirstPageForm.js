@@ -1,6 +1,9 @@
+import { useContext } from "react";
+import FormContext from "../../context/Form";
 import ButtonB from "../Button/Button";
 
 const FirstPageForm = () => {
+  const { next, setPageState } = useContext(FormContext);
   return (
     <>
       <div className="form-group">
@@ -55,7 +58,7 @@ const FirstPageForm = () => {
         type="submit"
         text={">>"}
         className={"btn btn-info"}
-        onClick={() => console.log("next")}
+        onClick={next}
       />
     </>
   );

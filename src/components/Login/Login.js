@@ -41,7 +41,7 @@ const Login = () => {
       />
       <ButtonB
         type="submit"
-        text={">>"}
+        text={"Acceder"}
         className={"btn btn-info"}
         onClick={() => console.log("next")}
       />
