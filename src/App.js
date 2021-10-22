@@ -1,14 +1,15 @@
 import "./App.css";
 import FirstPageForm from "./components/FirstPageForm/FirstPageForm";
+import SecondPageForm from "./components/SecondPageForm/SecondPageForm";
 import FormContext from "./context/Form";
 
 function App() {
   return (
     <>
       <FormContext.Provider value={"b"}>
-        <div className="form-group">
-          <FirstPageForm />
-        </div>
+        <form className="form-group">
+          <SecondPageForm />
+        </form>
       </FormContext.Provider>
     </>
   );
