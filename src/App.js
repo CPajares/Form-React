@@ -1,5 +1,6 @@
 import "./App.css";
 import FirstPageForm from "./components/FirstPageForm/FirstPageForm";
+import Login from "./components/Login/Login";
 import SecondPageForm from "./components/SecondPageForm/SecondPageForm";
 import FormContext from "./context/Form";
 
@@ -8,7 +9,7 @@ function App() {
     <>
       <FormContext.Provider value={"b"}>
         <form className="form-group">
-          <SecondPageForm />
+          <Login />
         </form>
       </FormContext.Provider>
     </>
