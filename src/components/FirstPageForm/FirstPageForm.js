@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import ButtonB from "../Button/Button";
 
 const FirstPageForm = () => {
   return (
@@ -38,6 +38,11 @@ const FirstPageForm = () => {
         aria-describedby="emailHelp"
         placeholder="Enter email"
         autoComplete="off"
+      />
+      <ButtonB
+        text={">>"}
+        classB={"btn btn-info"}
+        onClick={() => console.log("next")}
       />
     </>
   );
