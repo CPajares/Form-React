@@ -1,11 +1,11 @@
-const Button = ({ text, classB, onClick }) => {
+const ButtonB = ({ text, classB, onClick }) => {
   return (
     <>
-      <button type="button" className={classB} onClick={onClick}>
+      <button type="submit" className={classB} onClick={onClick}>
         {text}
       </button>
     </>
   );
 };
 
-export default Button;
+export default ButtonB;

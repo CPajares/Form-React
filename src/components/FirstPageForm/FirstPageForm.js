@@ -11,6 +11,7 @@ const FirstPageForm = () => {
         aria-describedby="emailHelp"
         placeholder="Enter Name"
         autoComplete="off"
+        required
       />
       <label htmlFor="lastName">LastName:</label>
       <input
@@ -20,6 +21,7 @@ const FirstPageForm = () => {
         aria-describedby="emailHelp"
         placeholder="Enter LastName"
         autoComplete="off"
+        required
       />
       <label htmlFor="birthday">Birthday:</label>
       <input
@@ -29,6 +31,7 @@ const FirstPageForm = () => {
         aria-describedby="emailHelp"
         placeholder="Enter Birthday"
         autoComplete="off"
+        required
       />
       <label htmlFor="emailAdress">Email address:</label>
       <input
@@ -38,6 +41,7 @@ const FirstPageForm = () => {
         aria-describedby="emailHelp"
         placeholder="Enter email"
         autoComplete="off"
+        required
       />
       <ButtonB
         text={">>"}
