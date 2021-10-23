@@ -3,52 +3,61 @@ import FormContext from "../../context/Form";
 import ButtonB from "../Button/Button";
 
 const SecondPageForm = () => {
-  const { setPageState } = useContext(FormContext);
+  const { next, previous, setPageState } = useContext(FormContext);
+
+  const previousDefault = () => {
+    previous();
+  };
+
+  const handleSubmit = () => {
+    next();
+  };
+
   return (
     <>
-      <div className="form-group">
-        <label htmlFor="userName">User Name</label>
-        <input
-          type="text"
-          className="form-control"
-          id="userName"
-          placeholder="Example input"
-          autoComplete="off"
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          2<label htmlFor="userName">User Name</label>
+          <input
+            type="text"
+            className="form-control"
+            id="userName"
+            placeholder="Example input"
+            autoComplete="off"
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            className="form-control"
+            id="password"
+            placeholder="Another input"
+            required
+            autoComplete="off"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="repeatPassword">Repeat password</label>
+          <input
+            type="password"
+            className="form-control"
+            id="repeatPassword"
+            placeholder="Another input"
+            required
+            autoComplete="off"
+          />
+        </div>
+
+        <ButtonB
+          text={"<<"}
+          className={"btn btn-info"}
+          onClick={previousDefault}
         />
-      </div>
-      <div className="form-group">
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          className="form-control"
-          id="password"
-          placeholder="Another input"
-          required
-          autoComplete="off"
-        />
-      </div>
-      <div className="form-group">
-        <label htmlFor="repeatPassword">Repeat password</label>
-        <input
-          type="password"
-          className="form-control"
-          id="repeatPassword"
-          placeholder="Another input"
-          required
-          autoComplete="off"
-        />
-      </div>
-      <ButtonB
-        text={"<<"}
-        className={"btn btn-info"}
-        onClick={() => setPageState(-1)}
-      />
-      <ButtonB
-        type="submit"
-        text={">>"}
-        className={"btn btn-info"}
-        onClick={() => setPageState(+1)}
-      />
+        <ButtonB type="submit" text={">>"} className={"btn btn-info"} />
+        <input type="submit" value=">>" className={"btn btn-info"} />
+      </form>
     </>
   );
 };

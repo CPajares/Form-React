@@ -9,17 +9,23 @@ function App() {
   const [pageState, setPageState, nextButton] = useState(0);
 
   const next = () => {
-    setPageState(pageState + 1);
+    if (pageState >= 0 && pageState < 2) {
+      setPageState(pageState + 1);
+    }
+  };
+
+  const previous = () => {
+    if (pageState >= 1 && pageState < 2) {
+      setPageState(pageState - 1);
+    }
   };
 
   return (
     <>
-      <FormContext.Provider value={{ next, pageState, setPageState }}>
-        <form className="form-group">
-          {pageState === 0 && <FirstPageForm />}
-          {pageState === 1 && <SecondPageForm />}
-          {pageState === 2 && <Login />}
-        </form>
+      <FormContext.Provider value={{ next, previous, pageState, setPageState }}>
+        {pageState === 0 && <FirstPageForm />}
+        {pageState === 1 && <SecondPageForm />}
+        {pageState === 2 && <Login />}
       </FormContext.Provider>
     </>
   );
