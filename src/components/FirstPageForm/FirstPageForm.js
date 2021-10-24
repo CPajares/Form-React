@@ -69,9 +69,6 @@ const FirstPageForm = () => {
           className={"btn btn-info"}
         />
       </form>
-      <pre style={{ textAlign: "left" }}>
-        <div>{JSON.stringify(data)}</div>
-      </pre>
     </>
   );
 };

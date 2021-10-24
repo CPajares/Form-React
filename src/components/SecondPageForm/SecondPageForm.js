@@ -65,9 +65,6 @@ const SecondPageForm = () => {
 
         <input type="submit" value=">>" className={"btn btn-info"} />
       </form>
-      <pre style={{ textAlign: "left" }}>
-        <div>{JSON.stringify(data)}</div>
-      </pre>
     </>
   );
 };

@@ -16,6 +16,8 @@ function App() {
     username: "",
     password: "",
     repeatPassword: "",
+    usernameCheck: "",
+    passwordCheck: "",
   });
 
   const next = () => {
