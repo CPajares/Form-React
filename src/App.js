@@ -6,7 +6,7 @@ import SecondPageForm from "./components/SecondPageForm/SecondPageForm";
 import FormContext from "./context/Form";
 
 function App() {
-  const [pageState, setPageState, nextButton] = useState(0);
+  const [pageState, setPageState] = useState(0);
 
   const next = () => {
     if (pageState >= 0 && pageState < 2) {
@@ -15,7 +15,7 @@ function App() {
   };
 
   const previous = () => {
-    if (pageState >= 1 && pageState < 2) {
+    if (pageState >= 1 && pageState <= 2) {
       setPageState(pageState - 1);
     }
   };
