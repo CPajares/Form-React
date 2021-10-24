@@ -18,8 +18,6 @@ function App() {
     repeatPassword: "",
   });
 
-  const initialData = {};
-
   const next = () => {
     if (pageState >= 0 && pageState < 2) {
       setPageState(pageState + 1);
