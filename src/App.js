@@ -44,6 +44,7 @@ function App() {
       <FormContext.Provider
         value={{
           onChangeprueba,
+          setData,
           data,
           next,
           previous,

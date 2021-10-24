@@ -36,9 +36,10 @@ const Login = () => {
   };
   return (
     <>
+      <div className="alert alert-info">Login</div>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          3<label htmlFor="usernameCheck">User Name</label>
+          <label htmlFor="usernameCheck">User Name</label>
           <input
             type="text"
             className="form-control"
@@ -63,6 +64,9 @@ const Login = () => {
             autoComplete="off"
             onChange={onChangeprueba}
           />
+          <div className={notMatchPassword ? "btn-danger" : "off"}>
+            Not match
+          </div>
         </div>
         <div className="form-check">
           <input
@@ -70,9 +74,7 @@ const Login = () => {
             type="checkbox"
             id="rememberPassword"
           />
-          <div className={notMatchPassword ? "btn-danger" : "off"}>
-            Not match
-          </div>
+
           <label className="form-check-label" htmlFor="rememberPassword">
             remember password
           </label>
