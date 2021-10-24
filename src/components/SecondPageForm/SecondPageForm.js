@@ -17,9 +17,10 @@ const SecondPageForm = () => {
 
   return (
     <>
+      <div className="alert alert-info">Access data</div>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          2<label htmlFor="username">User Name</label>
+          <label htmlFor="username">User Name</label>
           <input
             type="text"
             className="form-control"

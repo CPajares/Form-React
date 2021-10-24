@@ -12,9 +12,11 @@ const FirstPageForm = () => {
 
   return (
     <>
+      <div className="alert alert-info">Personal Data</div>
+
       <form className="form-group" onSubmit={handleSubmit}>
         <div className="form-group">
-          1<label htmlFor="name">Name:</label>
+          <label htmlFor="name">Name:</label>
           <input
             type="text"
             className="form-control"
