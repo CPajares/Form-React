@@ -5,7 +5,7 @@ import ButtonB from "../Button/Button";
 const Login = () => {
   const { next, previous, setPageState } = useContext(FormContext);
 
-  const nextDefault = () => {
+  const handleSubmit = () => {
     next();
   };
 
@@ -14,7 +14,7 @@ const Login = () => {
   };
   return (
     <>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="form-group">
           3<label htmlFor="userName">User Name</label>
           <input
@@ -41,7 +41,6 @@ const Login = () => {
             className="form-check-input"
             type="checkbox"
             id="rememberPassword"
-            required
           />
           <label className="form-check-label" htmlFor="rememberPassword">
             remember password
@@ -52,11 +51,11 @@ const Login = () => {
           className={"btn btn-info"}
           onClick={previousDefault}
         />
-        <ButtonB
+        <input
+          // onClick={nextDefault}
           type="submit"
-          text={"Acceder"}
+          value="Acceder"
           className={"btn btn-info"}
-          onClick={nextDefault}
         />
       </form>
     </>

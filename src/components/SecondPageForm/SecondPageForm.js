@@ -55,7 +55,7 @@ const SecondPageForm = () => {
           className={"btn btn-info"}
           onClick={previousDefault}
         />
-        <ButtonB type="submit" text={">>"} className={"btn btn-info"} />
+
         <input type="submit" value=">>" className={"btn btn-info"} />
       </form>
     </>
