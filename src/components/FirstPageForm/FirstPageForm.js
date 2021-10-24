@@ -2,10 +2,11 @@ import { useContext } from "react";
 import FormContext from "../../context/Form";
 
 const FirstPageForm = () => {
-  const { next } = useContext(FormContext);
+  const { onChangeprueba, next, data } = useContext(FormContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log();
     next();
   };
 
@@ -18,22 +19,23 @@ const FirstPageForm = () => {
             type="text"
             className="form-control"
             id="name"
-            aria-describedby="emailHelp"
             placeholder="Enter Name"
             autoComplete="off"
+            value={data.name}
+            onChange={onChangeprueba}
             required
           />
         </div>
         <div className="form-group">
-          <label htmlFor="lastName">LastName:</label>
+          <label htmlFor="lastname">LastName:</label>
           <input
             required
             type="text"
             className="form-control"
-            id="lastName"
-            aria-describedby="emailHelp"
+            id="lastname"
             placeholder="Enter LastName"
             autoComplete="off"
+            onChange={onChangeprueba}
           />
         </div>
         <div className="form-group">
@@ -42,21 +44,21 @@ const FirstPageForm = () => {
             type="date"
             className="form-control"
             id="birthday"
-            aria-describedby="emailHelp"
             placeholder="Enter Birthday"
             autoComplete="off"
+            onChange={onChangeprueba}
             required
           />
         </div>
         <div className="form-group">
-          <label htmlFor="emailAdress">Email address:</label>
+          <label htmlFor="email">Email address:</label>
           <input
             type="email"
             className="form-control"
-            id="emailAdress"
-            aria-describedby="emailHelp"
+            id="email"
             placeholder="Enter email"
             autoComplete="off"
+            onChange={onChangeprueba}
             required
           />
         </div>
@@ -67,6 +69,9 @@ const FirstPageForm = () => {
           className={"btn btn-info"}
         />
       </form>
+      <pre style={{ textAlign: "left" }}>
+        <div>{JSON.stringify(data)}</div>
+      </pre>
     </>
   );
 };
