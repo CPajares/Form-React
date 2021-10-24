@@ -73,9 +73,6 @@ const Login = () => {
         />
       </form>
       {showAllDetails ? <ShowData /> : ""}
-      <pre style={{ textAlign: "left" }}>
-        <div>{JSON.stringify(data)}</div>
-      </pre>
     </>
   );
 };
