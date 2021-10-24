@@ -1,22 +1,20 @@
+import { useState } from "react";
 import { useContext } from "react";
 import FormContext from "../../context/Form";
 import ButtonB from "../Button/Button";
-
+import "./SecondPageForm.css";
 const SecondPageForm = () => {
   const { data, onChangeprueba, next, previous } = useContext(FormContext);
 
   const previousDefault = () => {
     previous();
   };
-
+  const [switchNotMatch, setSwitchNotMatch] = useState(false);
   const handleSubmit = (event) => {
     event.preventDefault();
-    data.password === data.repeatPassword
-      ? next()
-      : alert(
-          "haga usted el favor, un poco de seriedad y ponga bien su password"
-        );
+    data.password === data.repeatPassword ? next() : setSwitchNotMatch(true);
   };
+
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -46,6 +44,7 @@ const SecondPageForm = () => {
         </div>
         <div className="form-group">
           <label htmlFor="repeatPassword">Repeat password</label>
+
           <input
             type="password"
             className="form-control"
@@ -55,6 +54,7 @@ const SecondPageForm = () => {
             autoComplete="off"
             onChange={onChangeprueba}
           />
+          <div className={switchNotMatch ? "btn-danger" : "off"}>Not match</div>
         </div>
 
         <ButtonB

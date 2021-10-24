@@ -14,12 +14,22 @@ const Login = () => {
       data.password === data.passwordCheck
     ) {
       setshowAllDetails(true);
+    }
+    if (data.username !== data.usernameCheck) {
+      setnotMatchUserName(true);
     } else {
-      alert("por favor... esa memoria, no coinciden sus datos");
+      setnotMatchUserName(false);
+    }
+    if (data.password !== data.passwordCheck) {
+      setNotMatchPassword(true);
+    } else {
+      setNotMatchPassword(false);
     }
   };
 
   const [showAllDetails, setshowAllDetails] = useState(false);
+  const [notMatchUserName, setnotMatchUserName] = useState(false);
+  const [notMatchPassword, setNotMatchPassword] = useState(false);
 
   const previousDefault = () => {
     previous();
@@ -37,7 +47,11 @@ const Login = () => {
             autoComplete="off"
             onChange={onChangeprueba}
           />
+          <div className={notMatchUserName ? "btn-danger" : "off"}>
+            Not match
+          </div>
         </div>
+
         <div className="form-group">
           <label htmlFor="passwordCheck">Password</label>
           <input
@@ -56,6 +70,9 @@ const Login = () => {
             type="checkbox"
             id="rememberPassword"
           />
+          <div className={notMatchPassword ? "btn-danger" : "off"}>
+            Not match
+          </div>
           <label className="form-check-label" htmlFor="rememberPassword">
             remember password
           </label>
