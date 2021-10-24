@@ -2,29 +2,27 @@ import { useContext } from "react";
 import FormContext from "../../context/Form";
 import ButtonB from "../Button/Button";
 
-const SecondPageForm = () => {
+const Login = () => {
   const { next, previous, setPageState } = useContext(FormContext);
-
-  const previousDefault = () => {
-    previous();
-  };
 
   const handleSubmit = () => {
     next();
   };
 
+  const previousDefault = () => {
+    previous();
+  };
   return (
     <>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          2<label htmlFor="userName">User Name</label>
+          3<label htmlFor="userName">User Name</label>
           <input
             type="text"
             className="form-control"
             id="userName"
             placeholder="Example input"
             autoComplete="off"
-            required
           />
         </div>
         <div className="form-group">
@@ -38,28 +36,30 @@ const SecondPageForm = () => {
             autoComplete="off"
           />
         </div>
-        <div className="form-group">
-          <label htmlFor="repeatPassword">Repeat password</label>
+        <div className="form-check">
           <input
-            type="password"
-            className="form-control"
-            id="repeatPassword"
-            placeholder="Another input"
-            required
-            autoComplete="off"
+            className="form-check-input"
+            type="checkbox"
+            id="rememberPassword"
           />
+          <label className="form-check-label" htmlFor="rememberPassword">
+            remember password
+          </label>
         </div>
-
         <ButtonB
           text={"<<"}
           className={"btn btn-info"}
           onClick={previousDefault}
         />
-
-        <input type="submit" value=">>" className={"btn btn-info"} />
+        <input
+          // onClick={nextDefault}
+          type="submit"
+          value="Acceder"
+          className={"btn btn-info"}
+        />
       </form>
     </>
   );
 };
 
-export default SecondPageForm;
+export default Login;
