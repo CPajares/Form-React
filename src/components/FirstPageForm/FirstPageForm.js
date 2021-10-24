@@ -9,6 +9,7 @@ const FirstPageForm = () => {
     event.preventDefault();
     next();
   };
+
   const onChangeBirthday = (event) => {
     setData({
       ...data,
