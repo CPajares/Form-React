@@ -3,7 +3,7 @@ import FormContext from "../../context/Form";
 import ButtonB from "../Button/Button";
 
 const SecondPageForm = () => {
-  const { next, previous, setPageState } = useContext(FormContext);
+  const { next, previous } = useContext(FormContext);
 
   const previousDefault = () => {
     previous();

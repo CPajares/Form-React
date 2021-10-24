@@ -3,10 +3,11 @@ import FormContext from "../../context/Form";
 import ButtonB from "../Button/Button";
 
 const Login = () => {
-  const { next, previous, setPageState } = useContext(FormContext);
+  const { next, previous } = useContext(FormContext);
 
-  const handleSubmit = () => {
-    next();
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("yes");
   };
 
   const previousDefault = () => {

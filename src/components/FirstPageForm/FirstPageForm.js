@@ -1,13 +1,11 @@
 import { useContext } from "react";
 import FormContext from "../../context/Form";
-import ButtonB from "../Button/Button";
 
 const FirstPageForm = () => {
-  const { next, setPageState } = useContext(FormContext);
+  const { next } = useContext(FormContext);
 
-  const nextDefault = () => {};
-
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
     next();
   };
 
