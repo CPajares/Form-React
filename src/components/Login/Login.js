@@ -3,7 +3,7 @@ import FormContext from "../../context/Form";
 import ButtonB from "../Button/Button";
 
 const Login = () => {
-  const { next, previous } = useContext(FormContext);
+  const { previous } = useContext(FormContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();

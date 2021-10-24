@@ -3,27 +3,32 @@ import FormContext from "../../context/Form";
 import ButtonB from "../Button/Button";
 
 const SecondPageForm = () => {
-  const { next, previous } = useContext(FormContext);
+  const { data, onChangeprueba, next, previous } = useContext(FormContext);
 
   const previousDefault = () => {
     previous();
   };
 
-  const handleSubmit = () => {
-    next();
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    data.password === data.repeatPassword
+      ? next()
+      : alert(
+          "haga usted el favor, un poco de seriedad y ponga bien su password"
+        );
   };
-
   return (
     <>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          2<label htmlFor="userName">User Name</label>
+          2<label htmlFor="username">User Name</label>
           <input
             type="text"
             className="form-control"
-            id="userName"
+            id="username"
             placeholder="Example input"
             autoComplete="off"
+            onChange={onChangeprueba}
             required
           />
         </div>
@@ -36,6 +41,7 @@ const SecondPageForm = () => {
             placeholder="Another input"
             required
             autoComplete="off"
+            onChange={onChangeprueba}
           />
         </div>
         <div className="form-group">
@@ -47,6 +53,7 @@ const SecondPageForm = () => {
             placeholder="Another input"
             required
             autoComplete="off"
+            onChange={onChangeprueba}
           />
         </div>
 
@@ -58,6 +65,9 @@ const SecondPageForm = () => {
 
         <input type="submit" value=">>" className={"btn btn-info"} />
       </form>
+      <pre style={{ textAlign: "left" }}>
+        <div>{JSON.stringify(data)}</div>
+      </pre>
     </>
   );
 };
