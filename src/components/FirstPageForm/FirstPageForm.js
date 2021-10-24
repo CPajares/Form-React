@@ -1,19 +1,38 @@
+import { useState } from "react";
 import { useContext } from "react";
 import FormContext from "../../context/Form";
 
 const FirstPageForm = () => {
-  const { onChangeprueba, next, data } = useContext(FormContext);
+  const { setData, onChangeprueba, next, data } = useContext(FormContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log();
     next();
   };
+  const onChangeBirthday = (event) => {
+    setData({
+      ...data,
+      [event.target.id]: event.target.value,
+    });
+    setAge(agecalculateAge(event.target.value));
+  };
+
+  function agecalculateAge(birthday) {
+    let birthday_arr = birthday.split("-").reverse();
+    let birthday_date = new Date(
+      birthday_arr[2],
+      birthday_arr[1] - 1,
+      birthday_arr[0]
+    );
+    let ageDifMs = Date.now() - birthday_date.getTime();
+    let ageDate = new Date(ageDifMs);
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
+  }
+  const [age, setAge] = useState(0);
 
   return (
     <>
       <div className="alert alert-info">Personal Data</div>
-
       <form className="form-group" onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="name">Name:</label>
@@ -48,9 +67,13 @@ const FirstPageForm = () => {
             id="birthday"
             placeholder="Enter Birthday"
             autoComplete="off"
-            onChange={onChangeprueba}
+            onChange={onChangeBirthday}
             required
           />
+          <p>
+            Años:
+            <span> {age}</span>
+          </p>
         </div>
         <div className="form-group">
           <label htmlFor="email">Email address:</label>
